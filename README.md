@@ -1,6 +1,6 @@
 Pemrg. Visual
 GUI: Pyqt
-Program : Python 3.8.2 keatas
+Program : Python 3.6.4 atau keatas
 
 Tugas Besar Pemrograman Visual. Pembuatan Sistem Pemesanan Futsal
 

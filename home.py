@@ -10,6 +10,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from pesan import Ui_Dialog
 from pemesanan import Ui_Dialog2
 from selesai import Ui_selesaiFutsal
+from aboutus import Ui_aboutus
 import pymysql
 from PyQt5.QtCore import QCoreApplication
 
@@ -204,6 +205,9 @@ class Ui_home(object):
         #btn Keluar
         self.logOut.clicked.connect(QCoreApplication.instance().quit)
         #btn Keluar
+        #btn aboutus
+        self.btnAboutUs.clicked.connect(self.windowaboutus)
+        #btn aboutus
 
         self.retranslateUi(home)
         QtCore.QMetaObject.connectSlotsByName(home)
@@ -219,6 +223,12 @@ class Ui_home(object):
         self.ui = Ui_selesaiFutsal()
         self.ui.setupUi(self.selesaiFutsal)
         self.selesaiFutsal.show()
+
+    def windowaboutus(self):
+        self.aboutus = QtWidgets.QDialog()
+        self.ui = Ui_aboutus()
+        self.ui.setupUi(self.aboutus)
+        self.aboutus.show()
 
     def windowPemesanan(self):
         self.Dialog2 = QtWidgets.QDialog()

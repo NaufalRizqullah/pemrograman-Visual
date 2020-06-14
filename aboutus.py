@@ -1,0 +1,117 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'aboutus.ui'
+#
+# Created by: PyQt5 UI code generator 5.6
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_aboutus(object):
+    def setupUi(self, aboutus):
+        aboutus.setObjectName("aboutus")
+        aboutus.resize(600, 300)
+        aboutus.setStyleSheet("background-color: #55557f;")
+        self.label_2 = QtWidgets.QLabel(aboutus)
+        self.label_2.setGeometry(QtCore.QRect(90, 10, 101, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(17)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("color:white;")
+        self.label_2.setObjectName("label_2")
+        self.label = QtWidgets.QLabel(aboutus)
+        self.label.setGeometry(QtCore.QRect(10, 10, 61, 51))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("img/bola.png"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
+        self.pushButton = QtWidgets.QPushButton(aboutus)
+        self.pushButton.setGeometry(QtCore.QRect(260, 260, 91, 31))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setUnderline(False)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("background:white;")
+        self.pushButton.setObjectName("pushButton")
+        self.label_3 = QtWidgets.QLabel(aboutus)
+        self.label_3.setGeometry(QtCore.QRect(90, 50, 441, 71))
+        font = QtGui.QFont()
+        font.setFamily("MS Gothic")
+        font.setPointSize(14)
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet("color:white;\n"
+"border:2px solid white;")
+        self.label_3.setScaledContents(False)
+        self.label_3.setWordWrap(True)
+        self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QLabel(aboutus)
+        self.label_4.setGeometry(QtCore.QRect(90, 120, 91, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(14)
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet("color:white;")
+        self.label_4.setScaledContents(False)
+        self.label_4.setWordWrap(False)
+        self.label_4.setObjectName("label_4")
+        self.splitter = QtWidgets.QSplitter(aboutus)
+        self.splitter.setGeometry(QtCore.QRect(90, 150, 374, 75))
+        self.splitter.setOrientation(QtCore.Qt.Vertical)
+        self.splitter.setObjectName("splitter")
+        self.label_5 = QtWidgets.QLabel(self.splitter)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(14)
+        self.label_5.setFont(font)
+        self.label_5.setStyleSheet("color:white;")
+        self.label_5.setScaledContents(False)
+        self.label_5.setWordWrap(False)
+        self.label_5.setObjectName("label_5")
+        self.label_6 = QtWidgets.QLabel(self.splitter)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(14)
+        self.label_6.setFont(font)
+        self.label_6.setStyleSheet("color:white;")
+        self.label_6.setScaledContents(False)
+        self.label_6.setWordWrap(False)
+        self.label_6.setObjectName("label_6")
+        self.label_7 = QtWidgets.QLabel(self.splitter)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(14)
+        self.label_7.setFont(font)
+        self.label_7.setStyleSheet("color:white;")
+        self.label_7.setScaledContents(False)
+        self.label_7.setWordWrap(False)
+        self.label_7.setObjectName("label_7")
+        self.pushButton.clicked.connect(aboutus.reject)
+
+        self.retranslateUi(aboutus)
+        QtCore.QMetaObject.connectSlotsByName(aboutus)
+
+    def retranslateUi(self, aboutus):
+        _translate = QtCore.QCoreApplication.translate
+        aboutus.setWindowTitle(_translate("aboutus", "Dialog"))
+        self.label_2.setText(_translate("aboutus", "About Us"))
+        self.pushButton.setText(_translate("aboutus", "OK!"))
+        self.label_3.setText(_translate("aboutus", "APLIKASI PEMESANAN LAPANGAN FUTSAL ini dibuat sebagai Tugas Besar dari Mata Kuliah Pemrograman Visual 2020"))
+        self.label_4.setText(_translate("aboutus", "Anggota: "))
+        self.label_5.setText(_translate("aboutus", "1. Muhammad Naufal Rizqullah (F1D017062)"))
+        self.label_6.setText(_translate("aboutus", "2. Nanda Wafiya (F1D017066)"))
+        self.label_7.setText(_translate("aboutus", "3. Puji Putri Nurcahyani  (F1D017071)"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    aboutus = QtWidgets.QDialog()
+    ui = Ui_aboutus()
+    ui.setupUi(aboutus)
+    aboutus.show()
+    sys.exit(app.exec_())
+
