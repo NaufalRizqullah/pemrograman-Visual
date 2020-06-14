@@ -1,6 +1,7 @@
-Pemrg. Visual
+[Tugas Besar Pemrograman Visaul]
 GUI: Pyqt
-Program : Python 3.6.4 atau keatas
+Database: MySQL Server
+Bahasa Pemrograman : Python 3.6.4 atau keatas
 
 Tugas Besar Pemrograman Visual. Pembuatan Sistem Aplikasi Pemesanan Lapangan Futsal (APLF)
 
@@ -14,4 +15,5 @@ Tugas Besar Pemrograman Visual. Pembuatan Sistem Aplikasi Pemesanan Lapangan Fut
 
 
 NB:
-1. Jika pada "pymysql.connect" bermasalah, silahkan pertama di cek apakah user dan password SQL udah benar dan juga ports nya perlu diperhatikan agar disesuaikan
+1. Untuk Database sendiri bisa di inport terlebih dahulu sebelum digunakan
+2. Jika pada "pymysql.connect" bermasalah, silahkan pertama di cek apakah user dan password SQL udah benar dan juga ports nya perlu diperhatikan agar disesuaikan
