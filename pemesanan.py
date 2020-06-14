@@ -8,6 +8,9 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pymysql
+import pandas as pd
+import xlsxwriter
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Ui_Dialog2(object):
@@ -105,9 +108,46 @@ class Ui_Dialog2(object):
         # Button pesan kalo di klik
         self.kembali.clicked.connect(Dialog2.reject)
         # Button pesan kalo di klik
+        # Button export
+        self.export_2.clicked.connect(self.exp)
+        # Button export
 
         self.retranslateUi(Dialog2)
         QtCore.QMetaObject.connectSlotsByName(Dialog2)
+
+    def exp(self):
+        conn = pymysql.connect(host="localhost", user="root",
+                               password="", db="futsal", port=3306, autocommit=True)
+
+        with pd.ExcelWriter("Output.xlsx", engine="xlsxwriter", options={'strings_to_numbers': True, 'strings_to_formulas': False}) as writer:
+            try:
+                df = pd.read_sql(
+                    "SELECT id, nama, waktu, lapangan, no_hp, pemesanan, pembayaran FROM pesanan", conn)
+                df.to_excel(writer, sheet_name="Sheet1",
+                            header=True, index=False)
+                self.messagebox("Berhasil", "File Berhasil Tersimpan!")
+                print("File saved successfully!")
+            except:
+                self.warning('Gagal', "File Gagal Tersimpan")
+                print("There is an error")
+
+    def messagebox(self, title, message):
+        mess = QtWidgets.QMessageBox()
+
+        mess.setWindowTitle(title)
+        mess.setText(message)
+        mess.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        mess.setIcon(QMessageBox.Information)
+        mess.exec_()
+
+    def warning(self, title, message):
+        mess = QtWidgets.QMessageBox()
+
+        mess.setWindowTitle(title)
+        mess.setText(message)
+        mess.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        mess.setIcon(QMessageBox.Warning)
+        mess.exec_()
 
     def retranslateUi(self, Dialog2):
         _translate = QtCore.QCoreApplication.translate
