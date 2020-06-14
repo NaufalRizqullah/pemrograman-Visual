@@ -14,17 +14,17 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: gray;
+   <string notr="true">background-color: #55557f;
 border-radius:20px;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="gambar">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>10</y>
-      <width>171</width>
-      <height>171</height>
+      <x>50</x>
+      <y>60</y>
+      <width>101</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -86,8 +86,8 @@ border-radius: 5px;</string>
     </property>
     <property name="font">
      <font>
-      <family>MS UI Gothic</family>
-      <pointsize>12</pointsize>
+      <family>Segoe UI</family>
+      <pointsize>14</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -98,7 +98,7 @@ background: #73AD21;
 </string>
     </property>
     <property name="text">
-     <string>Login</string>
+     <string>LOGIN</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_2">
@@ -128,6 +128,78 @@ border-radius: 5px;</string>
     </property>
     <property name="clearButtonEnabled">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>40</y>
+      <width>201</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>34</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="text">
+     <string>APLIKASI</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>100</y>
+      <width>341</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="text">
+     <string>PEMESANAN LAPANGAN FUTSAL</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>120</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="text">
+     <string>[APLF]</string>
     </property>
    </widget>
   </widget>

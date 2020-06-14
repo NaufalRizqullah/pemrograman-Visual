@@ -11,6 +11,7 @@ from pesan import Ui_Dialog
 from pemesanan import Ui_Dialog2
 from selesai import Ui_selesaiFutsal
 import pymysql
+from PyQt5.QtCore import QCoreApplication
 
 class Ui_home(object):
     def LoadData(self):
@@ -39,7 +40,7 @@ class Ui_home(object):
         self.centralwidget = QtWidgets.QWidget(home)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 581, 41))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(170, 10, 421, 41))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -57,9 +58,6 @@ class Ui_home(object):
         icon.addPixmap(QtGui.QPixmap("img/Mintb iOs/021-cursor.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnPelaporan_2.setIcon(icon)
         self.btnPelaporan_2.setObjectName("btnPelaporan_2")
-         # Button pesan kalo di klik
-        self.btnPelaporan_2.clicked.connect(self.windowPesan)
-        # Button pesan kalo di klik
         self.horizontalLayout_2.addWidget(self.btnPelaporan_2)
         self.line = QtWidgets.QFrame(self.horizontalLayoutWidget)
         self.line.setStyleSheet("background-color:white;")
@@ -67,24 +65,6 @@ class Ui_home(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.horizontalLayout_2.addWidget(self.line)
-        self.btnPelaporan = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Calibri Light")
-        font.setPointSize(16)
-        self.btnPelaporan.setFont(font)
-        self.btnPelaporan.setStyleSheet("color:white;\n"
-"background: #453a7f;")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("img/Mintb iOs/020-edit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnPelaporan.setIcon(icon1)
-        self.btnPelaporan.setObjectName("btnPelaporan")
-        self.horizontalLayout_2.addWidget(self.btnPelaporan)
-        self.line_2 = QtWidgets.QFrame(self.horizontalLayoutWidget)
-        self.line_2.setStyleSheet("background-color:white;")
-        self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
-        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_2.setObjectName("line_2")
-        self.horizontalLayout_2.addWidget(self.line_2)
         self.btnDPemesanan = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Calibri")
@@ -92,13 +72,10 @@ class Ui_home(object):
         self.btnDPemesanan.setFont(font)
         self.btnDPemesanan.setStyleSheet("color:white;\n"
 "background: #453a7f;")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("img/Mintb iOs/022-list.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnDPemesanan.setIcon(icon2)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("img/Mintb iOs/022-list.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnDPemesanan.setIcon(icon1)
         self.btnDPemesanan.setObjectName("btnDPemesanan")
-        # Button pesan kalo di klik
-        self.btnDPemesanan.clicked.connect(self.windowPemesanan)
-        # Button pesan kalo di klik
         self.horizontalLayout_2.addWidget(self.btnDPemesanan)
         self.line_3 = QtWidgets.QFrame(self.horizontalLayoutWidget)
         self.line_3.setStyleSheet("background-color:white;")
@@ -106,6 +83,16 @@ class Ui_home(object):
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.horizontalLayout_2.addWidget(self.line_3)
+        self.btnAboutUs = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        self.btnAboutUs.setFont(font)
+        self.btnAboutUs.setStyleSheet("background:#aa5500;color:white;")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("img/Mintb iOs/034-users.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnAboutUs.setIcon(icon2)
+        self.btnAboutUs.setObjectName("btnAboutUs")
+        self.horizontalLayout_2.addWidget(self.btnAboutUs)
         self.logOut = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -172,9 +159,6 @@ class Ui_home(object):
         icon3.addPixmap(QtGui.QPixmap("img/Mintb iOs/014-refresh.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnRefresh.setIcon(icon3)
         self.btnRefresh.setObjectName("btnRefresh")
-        # test load data pake btnRefresh
-        self.btnRefresh.clicked.connect(self.LoadData)
-        # test load data pake btnRefresh
         self.horizontalLayout_3.addWidget(self.btnRefresh)
         self.btnSelesai = QtWidgets.QPushButton(self.horizontalLayoutWidget_2)
         font = QtGui.QFont()
@@ -186,18 +170,44 @@ class Ui_home(object):
         icon4.addPixmap(QtGui.QPixmap("img/Mintb iOs/036-check.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnSelesai.setIcon(icon4)
         self.btnSelesai.setObjectName("btnSelesai")
-        # btn selesai
-        self.btnSelesai.clicked.connect(self.windowSelesai)
-        # btn selsai
         self.horizontalLayout_3.addWidget(self.btnSelesai)
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(10, 10, 41, 41))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("img/bola.png"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(60, 10, 61, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(17)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("color:white;")
+        self.label_2.setObjectName("label_2")
         home.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(home)
         self.statusbar.setObjectName("statusbar")
         home.setStatusBar(self.statusbar)
+        # Button pesan kalo di klik
+        self.btnPelaporan_2.clicked.connect(self.windowPesan)
+        # Button pesan kalo di klik
+        # Button pesan kalo di klik
+        self.btnDPemesanan.clicked.connect(self.windowPemesanan)
+        # Button pesan kalo di klik
+        # test load data pake btnRefresh
+        self.btnRefresh.clicked.connect(self.LoadData)
+        # test load data pake btnRefresh
+        # btn selesai
+        self.btnSelesai.clicked.connect(self.windowSelesai)
+        # btn selsai
+        #btn Keluar
+        self.logOut.clicked.connect(QCoreApplication.instance().quit)
+        #btn Keluar
 
         self.retranslateUi(home)
         QtCore.QMetaObject.connectSlotsByName(home)
-        # fungsi tombol pindah ke halaman form pemesanan (pesan)
+    # fungsi tombol pindah ke halaman lain
     def windowPesan(self):
         self.Dialog = QtWidgets.QDialog()
         self.ui = Ui_Dialog()
@@ -220,8 +230,8 @@ class Ui_home(object):
         _translate = QtCore.QCoreApplication.translate
         home.setWindowTitle(_translate("home", "MainWindow"))
         self.btnPelaporan_2.setText(_translate("home", "Pesan"))
-        self.btnPelaporan.setText(_translate("home", "Laporan"))
         self.btnDPemesanan.setText(_translate("home", "Data Pesanan"))
+        self.btnAboutUs.setText(_translate("home", "About Us"))
         self.logOut.setText(_translate("home", "Keluar"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("home", "id"))
@@ -233,6 +243,7 @@ class Ui_home(object):
         item.setText(_translate("home", "Waktu"))
         self.btnRefresh.setText(_translate("home", "Refresh"))
         self.btnSelesai.setText(_translate("home", "Selesai"))
+        self.label_2.setText(_translate("home", "APLF"))
 
 
 if __name__ == "__main__":

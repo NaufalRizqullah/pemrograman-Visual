@@ -11,17 +11,16 @@ from PyQt5.QtWidgets import QMessageBox
 import pymysql
 from home import Ui_home
 
-
 class Ui_login(object):
     def setupUi(self, login):
         login.setObjectName("login")
         login.resize(575, 360)
-        login.setStyleSheet("background-color: gray;\n"
-                            "border-radius:20px;")
+        login.setStyleSheet("background-color: #55557f;\n"
+"border-radius:20px;")
         self.centralwidget = QtWidgets.QWidget(login)
         self.centralwidget.setObjectName("centralwidget")
         self.gambar = QtWidgets.QLabel(self.centralwidget)
-        self.gambar.setGeometry(QtCore.QRect(200, 10, 171, 171))
+        self.gambar.setGeometry(QtCore.QRect(50, 60, 101, 101))
         self.gambar.setMaximumSize(QtCore.QSize(200, 200))
         self.gambar.setText("")
         self.gambar.setPixmap(QtGui.QPixmap("img/bola.png"))
@@ -35,46 +34,73 @@ class Ui_login(object):
         font.setKerning(True)
         self.lineEdit.setFont(font)
         self.lineEdit.setStyleSheet("background-color: white;\n"
-                                    "border: 2px solid gray;\n"
-                                    "border-radius: 5px;")
+"border: 2px solid gray;\n"
+"border-radius: 5px;")
         self.lineEdit.setClearButtonEnabled(False)
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(220, 280, 131, 41))
         font = QtGui.QFont()
-        font.setFamily("MS UI Gothic")
-        font.setPointSize(12)
+        font.setFamily("Segoe UI")
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("border-radius: 25px;\n"
-                                      "background: #73AD21;\n"
-                                      "")
+"background: #73AD21;\n"
+"")
         self.pushButton.setObjectName("pushButton")
-
-        # Button login kalo di klik
-        self.pushButton.clicked.connect(self.login)
-        # Button login kalo di klik
-
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(170, 230, 251, 41))
         font = QtGui.QFont()
         font.setKerning(True)
         self.lineEdit_2.setFont(font)
         self.lineEdit_2.setStyleSheet("background-color: white;\n"
-                                      "border: 2px solid gray;\n"
-                                      "border-radius: 5px;")
+"border: 2px solid gray;\n"
+"border-radius: 5px;")
         self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         self.lineEdit_2.setClearButtonEnabled(False)
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(180, 40, 201, 61))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(34)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setStyleSheet("color:white;")
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(180, 100, 341, 21))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet("color:white;")
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(180, 120, 71, 31))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet("color:white;")
+        self.label_3.setObjectName("label_3")
         login.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(login)
         self.statusbar.setObjectName("statusbar")
         login.setStatusBar(self.statusbar)
+        # Button login kalo di klik
+        self.pushButton.clicked.connect(self.login)
+        # Button login kalo di klik
 
         self.retranslateUi(login)
         QtCore.QMetaObject.connectSlotsByName(login)
-
     # fungsi login
     def login(self):
         username = self.lineEdit.text()  # ambil text yang dari username yg diinputkan
@@ -123,8 +149,11 @@ class Ui_login(object):
         _translate = QtCore.QCoreApplication.translate
         login.setWindowTitle(_translate("login", "MainWindow"))
         self.lineEdit.setPlaceholderText(_translate("login", "Username"))
-        self.pushButton.setText(_translate("login", "Login"))
+        self.pushButton.setText(_translate("login", "LOGIN"))
         self.lineEdit_2.setPlaceholderText(_translate("login", "Password"))
+        self.label.setText(_translate("login", "APLIKASI"))
+        self.label_2.setText(_translate("login", "PEMESANAN LAPANGAN FUTSAL"))
+        self.label_3.setText(_translate("login", "[APLF]"))
 
 
 if __name__ == "__main__":
@@ -135,3 +164,4 @@ if __name__ == "__main__":
     ui.setupUi(login)
     login.show()
     sys.exit(app.exec_())
+
