@@ -9,6 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from pesan import Ui_Dialog
 from pemesanan import Ui_Dialog2
+from selesai import Ui_selesaiFutsal
 import pymysql
 
 class Ui_home(object):
@@ -16,12 +17,12 @@ class Ui_home(object):
         conn = pymysql.connect(host="localhost", user="root",
                                password="", db="futsal", port=3306, autocommit=True)
         cur = conn.cursor()
-        query = "SELECT nama, lapangan, waktu FROM pesanan"
+        query = "SELECT id, nama, lapangan, waktu FROM pesanan WHERE status=0"
         cur.execute(query)
         result = cur.fetchall()
         # print(result)
         self.tableWidget.setRowCount(0)
-        self.tableWidget.setColumnCount(3)
+        # self.tableWidget.setColumnCount(4)
 
         for row_number, row_data in enumerate(result):
             self.tableWidget.insertRow(row_number)
@@ -30,7 +31,7 @@ class Ui_home(object):
                     row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
         conn.close()
-        
+
     def setupUi(self, home):
         home.setObjectName("home")
         home.resize(600, 360)
@@ -56,7 +57,7 @@ class Ui_home(object):
         icon.addPixmap(QtGui.QPixmap("img/Mintb iOs/021-cursor.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnPelaporan_2.setIcon(icon)
         self.btnPelaporan_2.setObjectName("btnPelaporan_2")
-        # Button pesan kalo di klik
+         # Button pesan kalo di klik
         self.btnPelaporan_2.clicked.connect(self.windowPesan)
         # Button pesan kalo di klik
         self.horizontalLayout_2.addWidget(self.btnPelaporan_2)
@@ -125,7 +126,7 @@ class Ui_home(object):
         font.setPointSize(10)
         self.tableWidget.setFont(font)
         self.tableWidget.setRowCount(10)
-        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setColumnCount(4)
         self.tableWidget.setObjectName("tableWidget")
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
@@ -141,9 +142,15 @@ class Ui_home(object):
         self.tableWidget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
+        font.setFamily("Segoe UI")
         font.setPointSize(12)
         item.setFont(font)
         self.tableWidget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(3, item)
         self.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.tableWidget.verticalHeader().setStretchLastSection(False)
         self.verticalLayout_2.addWidget(self.tableWidget)
@@ -179,6 +186,9 @@ class Ui_home(object):
         icon4.addPixmap(QtGui.QPixmap("img/Mintb iOs/036-check.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnSelesai.setIcon(icon4)
         self.btnSelesai.setObjectName("btnSelesai")
+        # btn selesai
+        self.btnSelesai.clicked.connect(self.windowSelesai)
+        # btn selsai
         self.horizontalLayout_3.addWidget(self.btnSelesai)
         home.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(home)
@@ -187,13 +197,18 @@ class Ui_home(object):
 
         self.retranslateUi(home)
         QtCore.QMetaObject.connectSlotsByName(home)
-
-    # fungsi tombol pindah ke halaman form pemesanan (pesan)
+        # fungsi tombol pindah ke halaman form pemesanan (pesan)
     def windowPesan(self):
         self.Dialog = QtWidgets.QDialog()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self.Dialog)
         self.Dialog.show()
+
+    def windowSelesai(self):
+        self.selesaiFutsal = QtWidgets.QDialog()
+        self.ui = Ui_selesaiFutsal()
+        self.ui.setupUi(self.selesaiFutsal)
+        self.selesaiFutsal.show()
 
     def windowPemesanan(self):
         self.Dialog2 = QtWidgets.QDialog()
@@ -209,10 +224,12 @@ class Ui_home(object):
         self.btnDPemesanan.setText(_translate("home", "Data Pesanan"))
         self.logOut.setText(_translate("home", "Keluar"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("home", "Nama"))
+        item.setText(_translate("home", "id"))
         item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("home", "Lapangan"))
+        item.setText(_translate("home", "Nama"))
         item = self.tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("home", "Lapangan"))
+        item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("home", "Waktu"))
         self.btnRefresh.setText(_translate("home", "Refresh"))
         self.btnSelesai.setText(_translate("home", "Selesai"))

@@ -147,7 +147,7 @@ class Ui_Dialog(object):
         conn = pymysql.connect(host="localhost", user="root",
                                password="", db="futsal", port=3306, autocommit=True)
         cur = conn.cursor()
-        query = "INSERT INTO pesanan VALUES (NULL,%s, %s, %s, %s, %s, %s)"
+        query = "INSERT INTO pesanan VALUES (NULL,%s, %s, %s, %s, %s, %s,'0')"
         data = cur.execute(
             query, (nama, waktu, lapangan, hp, pemesanan, pembayaran))
         if(data):
