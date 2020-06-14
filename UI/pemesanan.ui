@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog2</class>
+ <widget class="QDialog" name="Dialog2">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>360</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #55557f;</string>
+  </property>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>20</y>
+     <width>231</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>Data Pemesanan Futsal</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>571</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::SolidLine</enum>
+   </property>
+   <property name="rowCount">
+    <number>10</number>
+   </property>
+   <property name="columnCount">
+    <number>6</number>
+   </property>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <column>
+    <property name="text">
+     <string>Nama</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Waktu</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Lapangan</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>No Handphone</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Jenis Pemesanan</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Pembayaran</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="kembali">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #3dfff3;
+</string>
+      </property>
+      <property name="text">
+       <string>Kembali</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>img/Mintb iOs/009-back-arrow.png</normaloff>img/Mintb iOs/009-back-arrow.png</iconset>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="export_2">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>290</y>
+     <width>89</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: #ffaa00;
+</string>
+   </property>
+   <property name="text">
+    <string>Export</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>img/Mintb iOs/009-back-arrow.png</normaloff>img/Mintb iOs/009-back-arrow.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnRefresh">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>30</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:white;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>img/Mintb iOs/012-reload.png</normaloff>img/Mintb iOs/012-reload.png</iconset>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
